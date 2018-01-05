@@ -18,15 +18,19 @@
 *.tar.gz
 *.rar
 
+# Heroku environment file
+.env
+
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
 .idea/
-.gradle/
-gradlew*
-
 *.iml
 
+# Gradle files
+.gradle/
+gradlew*
 build/
 
+# MacOS specific files
 .DS_Store
