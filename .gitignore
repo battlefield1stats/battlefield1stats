@@ -29,3 +29,5 @@ gradlew*
 *.iml
 
 build/
+
+.DS_Store

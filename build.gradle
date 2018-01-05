@@ -1,6 +1,16 @@
+buildscript {
+    repositories {
+        maven {
+            url "http://repo.spring.io/libs-snapshot/"
+        }
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:2.0.0.M2"
+    }
+}
 apply plugin: 'java'
 apply plugin: 'idea'
-apply plugin: 'distribution'
+apply plugin: 'org.springframework.boot'
 
 sourceCompatibility = 1.8
 version = '1.0'
@@ -18,5 +28,5 @@ dependencies {
 }
 
 task stage {
-    dependsOn installDist
+    dependsOn build
 }
