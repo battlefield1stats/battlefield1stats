@@ -1,19 +1,22 @@
 package com.bf1stats.transformers;
 
-import com.bf1stats.domain.db.basic.ClassStatsDb;
-import com.bf1stats.domain.db.basic.DetailedStatsDb;
-import com.bf1stats.domain.db.basic.GameModeDb;
-import com.bf1stats.domain.db.basic.VehicleStatsDb;
+import com.bf1stats.domain.db.*;
 import com.bf1stats.domain.json.basic.*;
+import com.bf1stats.domain.json.vehicles.VehicleJson;
+import com.bf1stats.domain.json.vehicles.VehiclesJson;
+import com.bf1stats.domain.json.weapons.WeaponJson;
+import com.bf1stats.domain.json.weapons.WeaponsJson;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Component
 public class DetailedStatsTransformer {
 
-    public DetailedStatsDb transform(DetailedStatsJson detailedStatsJson) {
+    public DetailedStatsDb transform(DetailedStatsJson detailedStatsJson, List<VehiclesJson> vehiclesJson, List<WeaponsJson> weaponsJsons) {
         DetailedStatsDb detailedStatsDb = new DetailedStatsDb();
 
         detailedStatsDb.setHeadShots(detailedStatsJson.getHeadShots());
@@ -61,6 +64,18 @@ public class DetailedStatsTransformer {
                 .collect(Collectors.toList())
         );
 
+        detailedStatsDb.setVehicleDetailsDb(
+                vehiclesJson.stream()
+                .flatMap(vs -> flatMapVehicles(vs.getVehicles(), vs.getName()))
+                .collect(Collectors.toList())
+        );
+
+        detailedStatsDb.setWeaponDetailsDb(
+                weaponsJsons.stream()
+                .flatMap(ws -> flatMapWeapons(ws.getWeapons(), ws.getName()))
+                .collect(Collectors.toList())
+        );
+
         detailedStatsDb.setRecorded(LocalDateTime.now());
 
         return detailedStatsDb;
@@ -96,5 +111,34 @@ public class DetailedStatsTransformer {
         output.setTimeSpent(input.getTimeSpent());
 
         return output;
+    }
+
+    private Stream<VehicleDetailsDb> flatMapVehicles(List<VehicleJson> vehicles, String category) {
+        return vehicles.stream()
+                .map(v -> {
+                    VehicleDetailsDb vehicleDetailsDb = new VehicleDetailsDb();
+                    vehicleDetailsDb.setCategory(category);
+                    vehicleDetailsDb.setName(v.getName());
+                    vehicleDetailsDb.setTimeIn(v.getTimeIn());
+                    vehicleDetailsDb.setKills(v.getKills());
+                    vehicleDetailsDb.setDestroyed(v.getDestroyed());
+                    return vehicleDetailsDb;
+                });
+    }
+
+    private Stream<WeaponDetailsDb> flatMapWeapons(List<WeaponJson> weapons, String category) {
+        return weapons.stream()
+                .map(w -> {
+                    WeaponDetailsDb weaponDetailsDb = new WeaponDetailsDb();
+                    weaponDetailsDb.setCategory(category);
+                    weaponDetailsDb.setName(w.getName());
+                    weaponDetailsDb.setKills(w.getKills());
+                    weaponDetailsDb.setShots(w.getShots());
+                    weaponDetailsDb.setHits(w.getHits());
+                    weaponDetailsDb.setAccuracy(w.getAccuracy());
+                    weaponDetailsDb.setHeadshots(w.getHeadshots());
+                    weaponDetailsDb.setTimeUsed(w.getTimeUsed());
+                    return weaponDetailsDb;
+                });
     }
 }

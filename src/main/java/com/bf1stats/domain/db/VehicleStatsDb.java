@@ -1,4 +1,4 @@
-package com.bf1stats.domain.db.basic;
+package com.bf1stats.domain.db;
 
 import javax.persistence.*;
 

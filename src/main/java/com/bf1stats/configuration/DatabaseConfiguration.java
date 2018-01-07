@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Configuration
 @EnableJpaRepositories(basePackages = "com.bf1stats.dao")
-@EntityScan(basePackages = "com.bf1stats.domain.db.basic")
+@EntityScan(basePackages = "com.bf1stats.domain.db")
 public class DatabaseConfiguration {
 }

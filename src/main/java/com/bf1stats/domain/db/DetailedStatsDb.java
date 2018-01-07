@@ -1,4 +1,4 @@
-package com.bf1stats.domain.db.basic;
+package com.bf1stats.domain.db;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -101,6 +101,18 @@ public class DetailedStatsDb {
             orphanRemoval = true
     )
     private List<VehicleStatsDb> vehicleStatsDb;
+
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<VehicleDetailsDb> vehicleDetailsDb;
+
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<WeaponDetailsDb> weaponDetailsDb;
 
     @Column(name = "RECORDED")
     private LocalDateTime recorded;
@@ -319,6 +331,22 @@ public class DetailedStatsDb {
 
     public void setVehicleStatsDb(List<VehicleStatsDb> vehicleStatsDb) {
         this.vehicleStatsDb = vehicleStatsDb;
+    }
+
+    public List<VehicleDetailsDb> getVehicleDetailsDb() {
+        return vehicleDetailsDb;
+    }
+
+    public void setVehicleDetailsDb(List<VehicleDetailsDb> vehicleDetailsDb) {
+        this.vehicleDetailsDb = vehicleDetailsDb;
+    }
+
+    public List<WeaponDetailsDb> getWeaponDetailsDb() {
+        return weaponDetailsDb;
+    }
+
+    public void setWeaponDetailsDb(List<WeaponDetailsDb> weaponDetailsDb) {
+        this.weaponDetailsDb = weaponDetailsDb;
     }
 
     public LocalDateTime getRecorded() {
