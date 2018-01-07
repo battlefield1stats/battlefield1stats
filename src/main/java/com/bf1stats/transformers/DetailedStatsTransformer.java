@@ -8,7 +8,8 @@ import com.bf1stats.domain.json.weapons.WeaponJson;
 import com.bf1stats.domain.json.weapons.WeaponsJson;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -76,7 +77,7 @@ public class DetailedStatsTransformer {
                 .collect(Collectors.toList())
         );
 
-        detailedStatsDb.setRecorded(LocalDateTime.now());
+        detailedStatsDb.setRecorded(ZonedDateTime.now(ZoneId.of("UTC")).toLocalDateTime());
 
         return detailedStatsDb;
     }

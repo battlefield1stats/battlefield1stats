@@ -4,10 +4,9 @@ import com.bf1stats.domain.db.DetailedStatsDb;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Repository
 public interface DetailedStatsDao extends CrudRepository<DetailedStatsDb, Long> {
-    Optional<LocalDateTime> findFirstByOrderByRecordedDesc();
+    Optional<DetailedStatsDb> findFirstByOrderByRecordedDesc();
 }
