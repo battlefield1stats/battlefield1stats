@@ -7,6 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @ComponentScan(basePackages = {
         "com.bf1stats.configuration",
+        "com.bf1stats.client",
         "com.bf1stats.api"
 })
 public class Main {
