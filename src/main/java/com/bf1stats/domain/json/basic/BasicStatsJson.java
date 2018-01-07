@@ -1,6 +1,6 @@
-package com.bf1stats.domain.basic;
+package com.bf1stats.domain.json.basic;
 
-public class BasicStats {
+public class BasicStatsJson {
 
     private int kills;
     private int deaths;

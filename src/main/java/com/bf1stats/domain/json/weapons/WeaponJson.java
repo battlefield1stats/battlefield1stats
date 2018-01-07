@@ -1,9 +1,9 @@
-package com.bf1stats.domain.weapons;
+package com.bf1stats.domain.json.weapons;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(using = WeaponDeserializer.class)
-public class Weapon {
+public class WeaponJson {
 
     private String name;
 

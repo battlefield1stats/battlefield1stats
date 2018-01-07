@@ -1,8 +1,8 @@
-package com.bf1stats.domain.basic;
+package com.bf1stats.domain.json.basic;
 
 import java.util.List;
 
-public class DetailedStats {
+public class DetailedStatsJson {
 
     // K/D
     private int headShots;
@@ -24,11 +24,11 @@ public class DetailedStats {
 
     // General
     private int roundsPlayed;
-    private BasicStats basicStats;
+    private BasicStatsJson basicStats;
 
-    private List<GameMode> gameModeStats;
-    private List<ClassStats> kitStats;
-    private List<VehicleStats> vehicleStats;
+    private List<GameModeJson> gameModeStats;
+    private List<ClassStatsJson> kitStats;
+    private List<VehicleStatsJson> vehicleStats;
 
     public int getHeadShots() {
         return headShots;
@@ -150,35 +150,35 @@ public class DetailedStats {
         this.roundsPlayed = roundsPlayed;
     }
 
-    public BasicStats getBasicStats() {
+    public BasicStatsJson getBasicStats() {
         return basicStats;
     }
 
-    public void setBasicStats(BasicStats basicStats) {
+    public void setBasicStats(BasicStatsJson basicStats) {
         this.basicStats = basicStats;
     }
 
-    public List<GameMode> getGameModeStats() {
+    public List<GameModeJson> getGameModeStats() {
         return gameModeStats;
     }
 
-    public void setGameModeStats(List<GameMode> gameModeStats) {
+    public void setGameModeStats(List<GameModeJson> gameModeStats) {
         this.gameModeStats = gameModeStats;
     }
 
-    public List<ClassStats> getKitStats() {
+    public List<ClassStatsJson> getKitStats() {
         return kitStats;
     }
 
-    public void setKitStats(List<ClassStats> kitStats) {
+    public void setKitStats(List<ClassStatsJson> kitStats) {
         this.kitStats = kitStats;
     }
 
-    public List<VehicleStats> getVehicleStats() {
+    public List<VehicleStatsJson> getVehicleStats() {
         return vehicleStats;
     }
 
-    public void setVehicleStats(List<VehicleStats> vehicleStats) {
+    public void setVehicleStats(List<VehicleStatsJson> vehicleStats) {
         this.vehicleStats = vehicleStats;
     }
 }

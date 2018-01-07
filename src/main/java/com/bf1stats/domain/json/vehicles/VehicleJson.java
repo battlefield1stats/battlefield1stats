@@ -1,9 +1,9 @@
-package com.bf1stats.domain.vehicles;
+package com.bf1stats.domain.json.vehicles;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(using = VehicleDeserializer.class)
-public class Vehicle {
+public class VehicleJson {
 
     private String name;
     private double timeIn;

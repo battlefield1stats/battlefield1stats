@@ -1,9 +1,8 @@
-package com.bf1stats.domain.basic;
+package com.bf1stats.domain.json.basic;
 
-public class VehicleStats {
+public class VehicleStatsJson {
 
     private String name;
-    private String prettyName;
     private int killsAs;
     private double timeSpent;
 
@@ -13,14 +12,6 @@ public class VehicleStats {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getPrettyName() {
-        return prettyName;
-    }
-
-    public void setPrettyName(String prettyName) {
-        this.prettyName = prettyName;
     }
 
     public int getKillsAs() {

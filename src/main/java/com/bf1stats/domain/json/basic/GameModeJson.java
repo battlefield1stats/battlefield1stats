@@ -1,9 +1,8 @@
-package com.bf1stats.domain.basic;
+package com.bf1stats.domain.json.basic;
 
-public class GameMode {
+public class GameModeJson {
 
     private String name;
-    private String prettyName;
     private int wins;
     private int losses;
     private int score;
@@ -14,14 +13,6 @@ public class GameMode {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getPrettyName() {
-        return prettyName;
-    }
-
-    public void setPrettyName(String prettyName) {
-        this.prettyName = prettyName;
     }
 
     public int getWins() {

@@ -1,11 +1,11 @@
-package com.bf1stats.domain.vehicles;
+package com.bf1stats.domain.json.vehicles;
 
 import java.util.List;
 
-public class Vehicles {
+public class VehiclesJson {
 
     private String name;
-    private List<Vehicle> vehicles;
+    private List<VehicleJson> vehicles;
 
     public String getName() {
         return name;
@@ -15,11 +15,11 @@ public class Vehicles {
         this.name = name;
     }
 
-    public List<Vehicle> getVehicles() {
+    public List<VehicleJson> getVehicles() {
         return vehicles;
     }
 
-    public void setVehicles(List<Vehicle> vehicles) {
+    public void setVehicles(List<VehicleJson> vehicles) {
         this.vehicles = vehicles;
     }
 }

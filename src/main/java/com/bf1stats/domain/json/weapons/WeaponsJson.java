@@ -1,11 +1,11 @@
-package com.bf1stats.domain.weapons;
+package com.bf1stats.domain.json.weapons;
 
 import java.util.List;
 
-public class Weapons {
+public class WeaponsJson {
 
     private String name;
-    private List<Weapon> weapons;
+    private List<WeaponJson> weapons;
 
     public String getName() {
         return name;
@@ -15,11 +15,11 @@ public class Weapons {
         this.name = name;
     }
 
-    public List<Weapon> getWeapons() {
+    public List<WeaponJson> getWeapons() {
         return weapons;
     }
 
-    public void setWeapons(List<Weapon> weapons) {
+    public void setWeapons(List<WeaponJson> weapons) {
         this.weapons = weapons;
     }
 }

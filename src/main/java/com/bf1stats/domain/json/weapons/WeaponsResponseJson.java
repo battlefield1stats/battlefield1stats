@@ -1,13 +1,13 @@
-package com.bf1stats.domain.weapons;
+package com.bf1stats.domain.json.weapons;
 
-import com.bf1stats.domain.RootMarker;
+import com.bf1stats.domain.json.JsonRootMarker;
 
 import java.util.List;
 
-public class WeaponsResponse implements RootMarker {
+public class WeaponsResponseJson implements JsonRootMarker {
 
     private boolean successful;
-    private List<Weapons> result;
+    private List<WeaponsJson> result;
 
     public boolean isSuccessful() {
         return successful;
@@ -17,11 +17,11 @@ public class WeaponsResponse implements RootMarker {
         this.successful = successful;
     }
 
-    public List<Weapons> getResult() {
+    public List<WeaponsJson> getResult() {
         return result;
     }
 
-    public void setResult(List<Weapons> result) {
+    public void setResult(List<WeaponsJson> result) {
         this.result = result;
     }
 }

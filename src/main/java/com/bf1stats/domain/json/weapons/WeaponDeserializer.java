@@ -1,4 +1,4 @@
-package com.bf1stats.domain.weapons;
+package com.bf1stats.domain.json.weapons;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
@@ -7,16 +7,16 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 
 import java.io.IOException;
 
-public class WeaponDeserializer extends StdDeserializer<Weapon> {
+public class WeaponDeserializer extends StdDeserializer<WeaponJson> {
 
     public WeaponDeserializer() {
-        super(Weapon.class);
+        super(WeaponJson.class);
     }
 
     @Override
-    public Weapon deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException {
+    public WeaponJson deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException {
         JsonNode node = jp.getCodec().readTree(jp);
-        Weapon weapon = new Weapon();
+        WeaponJson weapon = new WeaponJson();
         weapon.setName(node.get("name").asText());
         JsonNode values = node.get("stats").get("values");
         weapon.setKills(values.get("kills") != null ? values.get("kills").asInt() : 0);

@@ -1,12 +1,12 @@
-package com.bf1stats.domain.vehicles;
+package com.bf1stats.domain.json.vehicles;
 
-import com.bf1stats.domain.RootMarker;
+import com.bf1stats.domain.json.JsonRootMarker;
 
 import java.util.List;
 
-public class VehiclesResponse implements RootMarker {
+public class VehiclesResponseJson implements JsonRootMarker {
     private boolean successful;
-    private List<Vehicles> result;
+    private List<VehiclesJson> result;
 
     public boolean isSuccessful() {
         return successful;
@@ -16,11 +16,11 @@ public class VehiclesResponse implements RootMarker {
         this.successful = successful;
     }
 
-    public List<Vehicles> getResult() {
+    public List<VehiclesJson> getResult() {
         return result;
     }
 
-    public void setResult(List<Vehicles> result) {
+    public void setResult(List<VehiclesJson> result) {
         this.result = result;
     }
 }

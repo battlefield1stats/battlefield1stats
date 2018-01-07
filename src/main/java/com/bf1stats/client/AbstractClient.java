@@ -1,6 +1,6 @@
 package com.bf1stats.client;
 
-import com.bf1stats.domain.RootMarker;
+import com.bf1stats.domain.json.JsonRootMarker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.client.RestTemplate;
@@ -33,7 +33,7 @@ public abstract class AbstractClient {
                 "&game=" + game;
     }
 
-    public <T extends RootMarker> T getFromResource(Class<T> clazz) {
+    public <T extends JsonRootMarker> T getFromResource(Class<T> clazz) {
         return trnRestTemplate.getForObject(uri, clazz);
     }
 }
