@@ -50,7 +50,7 @@ public class PersistDetailedStatsJob extends QuartzJobBean {
         DetailedStatsDb detailedStatsDb = detailedStatsTransformer.transform(detailedStatsResponseJson.getResult(), vehiclesResponseJson.getResult(), weaponsResponseJson.getResult());
         Optional<DetailedStatsDb> latest = detailedStatsDao.findFirstByOrderByRecordedDesc();
 
-        if (latest.isPresent() && detailedStatsDb.getTimePlayed() > latest.get().getTimePlayed()) {
+        if (!latest.isPresent() || detailedStatsDb.getTimePlayed() > latest.get().getTimePlayed()) {
             LOGGER.info("Data obtained from API is newer. Going to persist.");
             detailedStatsDao.save(detailedStatsDb);
         } else {
