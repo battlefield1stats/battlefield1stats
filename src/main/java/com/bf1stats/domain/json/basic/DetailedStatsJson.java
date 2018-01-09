@@ -1,34 +1,71 @@
 package com.bf1stats.domain.json.basic;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import java.util.List;
 
+@JsonDeserialize(using = DetailedStatsDeserializer.class)
 public class DetailedStatsJson {
 
     // K/D
+    private int kills;
+    private int deaths;
+    private double kpm;
     private int headShots;
     private int highestKillStreak;
+    private int nemesisKills;
+    private int nemesisKillStreak;
     private int killAssists;
     private int avengerKills;
     private int saviorKills;
     private int dogtagsTaken;
 
     // PTFO
+    private double spm;
+    private double skill;
     private int heals;
     private int revives;
     private int repairs;
     private int suppressionAssist;
     private int flagsDefended;
     private int flagsCaptured;
-    private double awardScore;
-    private double bonusScore;
+    private int squadScore;
+    private int awardScore;
+    private int bonusScore;
 
     // General
+    private int wins;
+    private int losses;
+    private int timePlayed;
     private int roundsPlayed;
-    private BasicStatsJson basicStats;
 
     private List<GameModeJson> gameModeStats;
     private List<ClassStatsJson> kitStats;
     private List<VehicleStatsJson> vehicleStats;
+
+    public int getKills() {
+        return kills;
+    }
+
+    public void setKills(int kills) {
+        this.kills = kills;
+    }
+
+    public int getDeaths() {
+        return deaths;
+    }
+
+    public void setDeaths(int deaths) {
+        this.deaths = deaths;
+    }
+
+    public double getKpm() {
+        return kpm;
+    }
+
+    public void setKpm(double kpm) {
+        this.kpm = kpm;
+    }
 
     public int getHeadShots() {
         return headShots;
@@ -44,6 +81,22 @@ public class DetailedStatsJson {
 
     public void setHighestKillStreak(int highestKillStreak) {
         this.highestKillStreak = highestKillStreak;
+    }
+
+    public int getNemesisKills() {
+        return nemesisKills;
+    }
+
+    public void setNemesisKills(int nemesisKills) {
+        this.nemesisKills = nemesisKills;
+    }
+
+    public int getNemesisKillStreak() {
+        return nemesisKillStreak;
+    }
+
+    public void setNemesisKillStreak(int nemesisKillStreak) {
+        this.nemesisKillStreak = nemesisKillStreak;
     }
 
     public int getKillAssists() {
@@ -76,6 +129,22 @@ public class DetailedStatsJson {
 
     public void setDogtagsTaken(int dogtagsTaken) {
         this.dogtagsTaken = dogtagsTaken;
+    }
+
+    public double getSpm() {
+        return spm;
+    }
+
+    public void setSpm(double spm) {
+        this.spm = spm;
+    }
+
+    public double getSkill() {
+        return skill;
+    }
+
+    public void setSkill(double skill) {
+        this.skill = skill;
     }
 
     public int getHeals() {
@@ -126,20 +195,52 @@ public class DetailedStatsJson {
         this.flagsCaptured = flagsCaptured;
     }
 
-    public double getAwardScore() {
+    public int getSquadScore() {
+        return squadScore;
+    }
+
+    public void setSquadScore(int squadScore) {
+        this.squadScore = squadScore;
+    }
+
+    public int getAwardScore() {
         return awardScore;
     }
 
-    public void setAwardScore(double awardScore) {
+    public void setAwardScore(int awardScore) {
         this.awardScore = awardScore;
     }
 
-    public double getBonusScore() {
+    public int getBonusScore() {
         return bonusScore;
     }
 
-    public void setBonusScore(double bonusScore) {
+    public void setBonusScore(int bonusScore) {
         this.bonusScore = bonusScore;
+    }
+
+    public int getWins() {
+        return wins;
+    }
+
+    public void setWins(int wins) {
+        this.wins = wins;
+    }
+
+    public int getLosses() {
+        return losses;
+    }
+
+    public void setLosses(int losses) {
+        this.losses = losses;
+    }
+
+    public int getTimePlayed() {
+        return timePlayed;
+    }
+
+    public void setTimePlayed(int timePlayed) {
+        this.timePlayed = timePlayed;
     }
 
     public int getRoundsPlayed() {
@@ -148,14 +249,6 @@ public class DetailedStatsJson {
 
     public void setRoundsPlayed(int roundsPlayed) {
         this.roundsPlayed = roundsPlayed;
-    }
-
-    public BasicStatsJson getBasicStats() {
-        return basicStats;
-    }
-
-    public void setBasicStats(BasicStatsJson basicStats) {
-        this.basicStats = basicStats;
     }
 
     public List<GameModeJson> getGameModeStats() {

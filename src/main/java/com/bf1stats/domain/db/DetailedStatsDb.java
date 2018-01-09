@@ -19,6 +19,12 @@ public class DetailedStatsDb {
     @Column(name = "HIGHEST_KILL_STREAK")
     private int highestKillStreak;
 
+    @Column(name = "NEMESIS_KILLS")
+    private int nemesisKills;
+
+    @Column(name = "NEMESIS_KILL_STREAK")
+    private int nemesisKillStreak;
+
     @Column(name = "KILL_ASSISTS")
     private int killAssists;
 
@@ -139,6 +145,22 @@ public class DetailedStatsDb {
 
     public void setHighestKillStreak(int highestKillStreak) {
         this.highestKillStreak = highestKillStreak;
+    }
+
+    public int getNemesisKills() {
+        return nemesisKills;
+    }
+
+    public void setNemesisKills(int nemesisKills) {
+        this.nemesisKills = nemesisKills;
+    }
+
+    public int getNemesisKillStreak() {
+        return nemesisKillStreak;
+    }
+
+    public void setNemesisKillStreak(int nemesisKillStreak) {
+        this.nemesisKillStreak = nemesisKillStreak;
     }
 
     public int getKillAssists() {

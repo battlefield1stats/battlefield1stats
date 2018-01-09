@@ -22,6 +22,8 @@ public class DetailedStatsTransformer {
 
         detailedStatsDb.setHeadShots(detailedStatsJson.getHeadShots());
         detailedStatsDb.setHighestKillStreak(detailedStatsJson.getHighestKillStreak());
+        detailedStatsDb.setNemesisKills(detailedStatsJson.getNemesisKills());
+        detailedStatsDb.setNemesisKillStreak(detailedStatsJson.getNemesisKillStreak());
         detailedStatsDb.setKillAssists(detailedStatsJson.getKillAssists());
         detailedStatsDb.setAvengerKills(detailedStatsJson.getAvengerKills());
         detailedStatsDb.setSaviorKills(detailedStatsJson.getSaviorKills());
@@ -37,15 +39,14 @@ public class DetailedStatsTransformer {
         detailedStatsDb.setBonusScore(detailedStatsJson.getBonusScore());
 
         detailedStatsDb.setRoundsPlayed(detailedStatsJson.getRoundsPlayed());
-        BasicStatsJson basicStatsJson = detailedStatsJson.getBasicStats();
-        detailedStatsDb.setKills(basicStatsJson.getKills());
-        detailedStatsDb.setDeaths(basicStatsJson.getDeaths());
-        detailedStatsDb.setWins(basicStatsJson.getWins());
-        detailedStatsDb.setLosses(basicStatsJson.getLosses());
-        detailedStatsDb.setSpm(basicStatsJson.getSpm());
-        detailedStatsDb.setSkill(basicStatsJson.getSkill());
-        detailedStatsDb.setTimePlayed(basicStatsJson.getTimePlayed());
-        detailedStatsDb.setKpm(basicStatsJson.getKpm());
+        detailedStatsDb.setKills(detailedStatsDb.getKills());
+        detailedStatsDb.setDeaths(detailedStatsDb.getDeaths());
+        detailedStatsDb.setWins(detailedStatsDb.getWins());
+        detailedStatsDb.setLosses(detailedStatsDb.getLosses());
+        detailedStatsDb.setSpm(detailedStatsDb.getSpm());
+        detailedStatsDb.setSkill(detailedStatsDb.getSkill());
+        detailedStatsDb.setTimePlayed(detailedStatsDb.getTimePlayed());
+        detailedStatsDb.setKpm(detailedStatsDb.getKpm());
 
         detailedStatsDb.setGameModeDb(
                 detailedStatsJson.getGameModeStats().stream()
